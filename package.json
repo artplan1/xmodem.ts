@@ -1,16 +1,16 @@
 {
   "name": "xmodem.ts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "XMODEM implementation in Typescript",
   "files": [
     "dist"
   ],
-  "main": "./dist/xmodem.umd.js",
+  "main": "./dist/xmodem.cjs.js",
   "module": "./dist/xmodem.es.js",
   "exports": {
     ".": {
       "import": "./dist/xmodem.es.js",
-      "require": "./dist/xmodem.umd.js"
+      "require": "./dist/xmodem.cjs.js"
     }
   },
   "types": "./dist/types/index.d.ts",
