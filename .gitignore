@@ -5,3 +5,6 @@ mochawesome-report/
 mochawesome-reports/
 out/
 lib-cov
+dist
+*.tgz
+*.log

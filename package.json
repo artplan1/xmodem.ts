@@ -1,12 +1,24 @@
 {
-  "name": "xmodem.js",
-  "version": "0.1.0",
-  "description": "XMODEM implementation in JavaScript",
-  "main": "lib/index.js",
+  "name": "xmodem.ts",
+  "version": "0.0.1",
+  "description": "XMODEM implementation in Typescript",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/xmodem.umd.js",
+  "module": "./dist/xmodem.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/xmodem.es.js",
+      "require": "./dist/xmodem.umd.js"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "test": "node_modules/.bin/mocha -S --bail --reporter mochawesome --exit",
-    "test-cov": "XMODEM_COV=1 node_modules/.bin/mocha -S --bail --reporter mocha-lcov-reporter --exit",
-    "gendoc": "node_modules/.bin/jsdoc -c ./doc/jsdoc.conf -t ./node_modules/jsdoc-baseline -u ./doc/"
+    "build": "vite build && tsc --emitDeclarationOnly && mv dist/src dist/types",
+    "preserve": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "keywords": [
     "xmodem",
@@ -14,29 +26,26 @@
     "crc"
   ],
   "author": "Sten Feldman",
+  "contributors": [
+    "Artem Kozaev"
+  ],
   "license": "BSD-2-Clause",
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 16.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/exsilium/xmodem.js.git"
+    "url": "https://github.com/artplan1/xmodem.ts.git"
   },
-  "dependencies": {
-    "crc": "~3.8.0"
+  "peerDependencies": {
+    "buffer": "^6.0.3",
+    "crc": "^4.1.1"
   },
   "devDependencies": {
-    "tracer": "^0.9.8",
-    "mocha": "^6.1.4",
-    "chai": "^4.2.0",
-    "jscoverage": "~0.6.0",
-    "mochawesome": "^4.0.1",
-    "mocha-lcov-reporter": "~1.3.0",
-    "coveralls": "~3.0.4",
-    "md5-file": "^4.0.0",
-    "command-exists": "~1.2.8",
-    "serialport": "~7.1.5",
-    "jsdoc": "^3.6.2",
-    "jsdoc-baseline": "https://github.com/hegemonic/baseline/tarball/222e13a"
+    "@types/node": "^16.11.42",
+    "buffer": "^6.0.3",
+    "crc": "^4.1.1",
+    "typescript": "~4.3.5",
+    "vite": "^2.6.3"
   }
 }
